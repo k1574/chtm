@@ -1,0 +1,40 @@
+# chtm
+
+C HTM preprocessor for HTML with more C-like syntax.
+Closer to CSS and so on. Made just for me since I hate closing tags.
+May be and should be prepreprocessed with pp.
+
+## Example
+
+	<!doctype html>
+	<html>{
+		<head>{
+			<meta charset="utf-8">
+			<title>{Hello, <bold>{CML}!}
+		}
+		<body>{
+			<strong>{Hello}, <i>{CML}!
+		}
+	}
+
+will output into:
+
+	<!doctype html>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>Hello, <bold>CML</bold>!</title>
+		</head>
+		<body>
+			<strong>Hello</strong>, <i>CML</i>!
+		</body>
+	</html>
+
+## Important
+
+not
+	<tag> {something}
+But
+	<tag>{something}
+Because first will be taken as singleton tag.
+

@@ -1,0 +1,4 @@
+<$MKINCDIR/config
+PROGNAME = chtm
+CFILES = main.c
+
