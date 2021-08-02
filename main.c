@@ -65,9 +65,9 @@ hndltag(void)
 
 	/* Handle inside data. */
 	while(RC != '}'){
+		if(c == EOF) synerr() ;
 		PC;
 		if(c == '<') hndltag() ;
-		else if(c == EOF) synerr() ;
 	}
 	printf("</%s>", tagname);
 }
@@ -78,11 +78,11 @@ main(int argc, char *argv[])
 	argv0 = argv[0] ;
 	if(argc!=1) usage() ;
 
-	do{
-		putchar(RC);
+	while(RC != EOF){
+		putchar(c);
 		if(c == '<')
 			hndltag();
-	}while(c != EOF);
+	}
 
 	return 0 ;
 }
